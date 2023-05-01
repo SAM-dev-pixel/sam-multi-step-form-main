@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --marineblue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 8%, 12%);
+}
+body {
+    min-height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--cool-gray);
+}
+.main-container {
+    width: 58.75rem;
+  display: flex;
+  background-color: var(--white);
+}
+.sidebar {
+    width: 17.125rem;
+    background: url(../assets/images/bg-sidebar-desktop.svg);
+}
+.step-container {
+    background-color: var(--white) !important;
+}
