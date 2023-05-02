@@ -33,6 +33,7 @@ body {
 }
 .sidebar {
   width: 17.125rem;
+  padding: 2.5rem 2rem;
   margin-right: 1rem;
   background-color: var(--purplish-blue);
   background: url(../assets/images/bg-sidebar-desktop.svg);
@@ -43,14 +44,27 @@ body {
 .sidebar-title-contain {
   display: flex;
   align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.875rem;
 }
-.number {
-  padding: 1em;
+.number-contain {
+  width: 2.125rem;
+  height: 2.125rem;
+  display: flex;
+  border: 2px solid var(--light-blue);
+  border-radius: 50%;
+}
+.number-contain p {
+  margin: auto;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--light-blue);
-  border: 1px solid var(--light-blue);
-  sca
+}
+.number-contain.active {
+  background-color: var(--light-blue);
+}
+.number-contain.active p {
+  color: var(--dark);
 }
 .sidebar-title-contain div p:first-child {
   font-size: 0.875rem;
@@ -65,6 +79,9 @@ body {
 .step-container {
   padding: 5.25rem;
   /* background-color: var(--white) !important; */
+}
+.step-personal-info.done {
+  display: none;
 }
 .title {
   font-size: 2rem;

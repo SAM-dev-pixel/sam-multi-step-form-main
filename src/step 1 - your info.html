@@ -36,28 +36,36 @@
     <main class="main-container">
       <div class="sidebar">
         <div class="sidebar-title-contain">
-          <p class="number">1</p>
+          <div class="number-contain active">
+            <p>1</p>
+          </div>
           <div>
             <p>Step 1</p>
             <p>Your info</p>
           </div>
         </div>
         <div class="sidebar-title-contain">
-          <p class="number">2</p>
+          <div class="number-contain">
+            <p>2</p>
+          </div>
           <div>
             <p>Step 2</p>
             <p>Select plan</p>
           </div>
         </div>
         <div class="sidebar-title-contain">
-          <p class="number">3</p>
+          <div class="number-contain">
+            <p>3</p>
+          </div>
           <div>
             <p>Step 3</p>
             <p>Add-ons</p>
           </div>
         </div>
         <div class="sidebar-title-contain">
-          <p class="number">4</p>
+          <div class="number-contain">
+            <p>4</p>
+          </div>
           <div>
             <p>Step 4</p>
             <p>Summary</p>
@@ -65,37 +73,66 @@
         </div>
       </div>
       <div class="step-container">
-        <h1 class="title">Personal info</h1>
-        <p class="text">
-          Please provide your name, email address, and phone number.
-        </p>
-        <form action="#" class="personal-form">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="e.g. Stephen King"
-            required
-          />
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="e.g. stephenking@lorem.com"
-            required
-          />
-          <label for="phone-number">Phone Number</label>
-          <input
-            type="text"
-            id="phone-number"
-            name="phone-number"
-            placeholder="e.g. +1 234 567 890"
-            required
-          />
-          <input type="submit" value="Next Step" />
-        </form>
+        <div id="step-personal-info">
+          <h2 class="title">Personal info</h1>
+          <p class="text">
+            Please provide your name, email address, and phone number.
+          </p>
+          <form action="#" class="personal-form">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. Stephen King"
+            />
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. stephenking@lorem.com"
+            />
+            <label for="phone-number">Phone Number</label>
+            <input
+              type="text"
+              id="phone-number"
+              name="phone-number"
+              placeholder="e.g. +1 234 567 890"
+            />
+            <input type="submit" value="Next Step" class="next-btn"/>
+          </form>
+        </div>
+        <div id="step-personal-info">
+          <h2 class="title">Select your plan</h1>
+          <p class="text">
+            Please provide your name, email address, and phone number.
+          </p>
+          <form action="#" class="personal-form">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. Stephen King"
+            />
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. stephenking@lorem.com"
+            />
+            <label for="phone-number">Phone Number</label>
+            <input
+              type="text"
+              id="phone-number"
+              name="phone-number"
+              placeholder="e.g. +1 234 567 890"
+            />
+            <input type="submit" value="Next Step"/>
+          </form>
+        </div>
       </div>
     </main>
     <!-- Sidebar start -->
@@ -108,7 +145,7 @@
 
     <!-- Step 2 start -->
 
-    Select your plan You have the option of monthly or yearly billing. Arcade
+     You have the option of monthly or yearly billing. Arcade
     $9/mo Advanced $12/mo Pro $15/mo Monthly Yearly Go Back Next Step
 
     <!-- Step 2 end -->
@@ -146,5 +183,7 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
