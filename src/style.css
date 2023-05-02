@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid green; */
 }
 :root {
   --marineblue: hsl(213, 96%, 18%);
@@ -13,10 +14,11 @@
   --light-gray: hsl(229, 24%, 87%);
   --magnolia: hsl(217, 100%, 97%);
   --alabaster: hsl(231, 100%, 99%);
-  --white: hsl(0, 8%, 12%);
+  --dark: hsl(0, 8%, 12%);
+  --white: hsl(0%, 0%, 100%);
 }
 body {
-    min-height: 100vh;
+  min-height: 100vh;
   font-family: "Ubuntu", sans-serif;
   padding: 1rem;
   display: grid;
@@ -24,14 +26,73 @@ body {
   background-color: var(--cool-gray);
 }
 .main-container {
-    width: 58.75rem;
+  width: 58.75rem;
+  padding: 1rem;
   display: flex;
-  background-color: var(--white);
+  background-color: var(--alabaster);
 }
 .sidebar {
-    width: 17.125rem;
-    background: url(../assets/images/bg-sidebar-desktop.svg);
+  width: 17.125rem;
+  margin-right: 1rem;
+  background-color: var(--purplish-blue);
+  background: url(../assets/images/bg-sidebar-desktop.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sidebar-title-contain {
+  display: flex;
+  align-items: center;
+}
+.number {
+  padding: 1em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--light-blue);
+  border: 1px solid var(--light-blue);
+  sca
+}
+.sidebar-title-contain div p:first-child {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.sidebar-title-contain div p:nth-child(2) {
+  font-size: 1;
+  font-weight: 500;
+  color: var(--alabaster);
+  text-transform: uppercase;
 }
 .step-container {
-    background-color: var(--white) !important;
+  padding: 5.25rem;
+  /* background-color: var(--white) !important; */
+}
+.title {
+  font-size: 2rem;
+  color: var(--marineblue);
+}
+.text {
+  margin: 1.25em 0 2.875em 0;
+  font-size: 1rem;
+  color: var(--cool-gray);
+}
+.personal-form {
+  display: flex;
+  flex-direction: column;
+}
+.personal-form label {
+  margin-bottom: 0.625em;
+  font-size: 0.875rem;
+  color: var(--dark);
+}
+.personal-form input {
+  padding: 1.125em 1em;
+  margin-bottom: 1.625rem;
+  font-size: 1rem;
+  outline: none;
+  background: transparent;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.75rem;
+}
+.personal-form input::placeholder {
+  font-size: 1rem;
 }
