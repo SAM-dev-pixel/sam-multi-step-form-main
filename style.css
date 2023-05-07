@@ -27,6 +27,7 @@ body {
 }
 .main-container {
   width: 58.75rem;
+  height: 37.5rem;
   padding: 1rem;
   display: flex;
   background-color: var(--alabaster);
@@ -77,10 +78,11 @@ body {
   text-transform: uppercase;
 }
 .step-container {
-  padding: 5.25rem;
+  /* padding: 5.25rem; */
+  padding: 3.875rem;
   /* background-color: var(--white) !important; */
 }
-.step-personal-info.done {
+.no-show {
   display: none;
 }
 .title {
@@ -113,3 +115,75 @@ body {
 .personal-form input::placeholder {
   font-size: 1rem;
 }
+.next-btn {
+  color: var(--magnolia);
+  padding: 1.125em 1.625em;
+  margin-left: auto;
+  background-color: var(--dark) !important;
+  border-radius: 0.5rem;
+}
+.plan-box-contain {
+  display: flex;
+  gap: 1.125rem;
+}
+.plan-box {
+  width: 8.5rem;
+  padding: 1.125rem 0.875rem;
+  border: 1px solid var(--cool-gray);
+  border-radius: 0.75rem;
+}
+.plan-box-title {
+  padding: 3em 0 0.75em 0;
+  color: var(--marineblue);
+  font-weight: 500;
+}
+.plan-box-price {
+  color: var(--cool-gray);
+}
+.monthly-yearly-switcher-contain {
+  padding: 0.875rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  background-color: var(--alabaster);
+}
+.monthly-yearly-switcher-contain .switcher {
+  width: 2.375rem;
+  height: 1.25rem;
+  padding: 0.25rem;
+  background-color: var(--dark);
+  border-radius: 2rem;
+}
+.monthly-yearly-switcher-contain .switcher div {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--magnolia);
+}
+.step-button-contain {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.step-button-contain button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* STEP ADD ONS STYLE START */
+.add-on-box {
+  padding: 1em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid var(--dark);
+  border-radius: .5rem;
+}
+.add-on-price {
+  margin-left: auto;
+}
+/* STEP ADD ONS STYLE END */
