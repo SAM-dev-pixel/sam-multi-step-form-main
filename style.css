@@ -81,10 +81,21 @@ body {
   /* padding: 5.25rem; */
   padding: 3.875rem;
   /* background-color: var(--white) !important; */
+  border: 1px solid blue;
+  position: relative;
+}
+.step-container > * {
+  background-color: var(--alabaster);
+}
+.step-container > *:not(.step-info) {
+  position: absolute;
+  top: 3.875rem;
 }
 .no-show {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
+/* STEP INFO STYLE START*/
 .title {
   font-size: 2rem;
   color: var(--marineblue);
@@ -122,6 +133,8 @@ body {
   background-color: var(--dark) !important;
   border-radius: 0.5rem;
 }
+/* STEP INFO STYLE END*/
+/* STEP PLAN STYLE START*/
 .plan-box-contain {
   display: flex;
   gap: 1.125rem;
@@ -172,7 +185,7 @@ body {
   border: none;
   outline: none;
 }
-
+/* STEP PLAN STYLE END*/
 /* STEP ADD ONS STYLE START */
 .add-on-box {
   padding: 1em;
@@ -181,9 +194,18 @@ body {
   align-items: center;
   gap: 1.5rem;
   border: 1px solid var(--dark);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 .add-on-price {
   margin-left: auto;
 }
 /* STEP ADD ONS STYLE END */
+/* STEP SUMMARY STYLE START */
+.summary-contain {
+  background-color: var(--light-gray);
+}
+.summary-plan {
+  display: flex;
+  justify-content: space-between;
+}
+/* STEP SUMMARY STYLE END */
