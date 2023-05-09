@@ -78,18 +78,20 @@ body {
   text-transform: uppercase;
 }
 .step-container {
+  width: 100%;
   /* padding: 5.25rem; */
-  padding: 3.875rem;
+  /* padding: 3.875rem; */
   /* background-color: var(--white) !important; */
   border: 1px solid blue;
   position: relative;
 }
 .step-container > * {
-  background-color: var(--alabaster);
-}
-.step-container > *:not(.step-info) {
   position: absolute;
   top: 3.875rem;
+  right: 5.25rem;
+  bottom: 2rem;
+  left: 5.25rem;
+  background-color: var(--alabaster);
 }
 .no-show {
   opacity: 0;
@@ -101,7 +103,7 @@ body {
   color: var(--marineblue);
 }
 .text {
-  margin: 1.25em 0 2.875em 0;
+  margin: 0.75em 0 2em 0;
   font-size: 1rem;
   color: var(--cool-gray);
 }
@@ -113,15 +115,26 @@ body {
   margin-bottom: 0.625em;
   font-size: 0.875rem;
   color: var(--dark);
+  display: flex;
+  justify-content: space-between;
 }
 .personal-form input {
-  padding: 1.125em 1em;
+  padding: 1em;
   margin-bottom: 1.625rem;
   font-size: 1rem;
   outline: none;
   background: transparent;
   border: 1px solid var(--cool-gray);
   border-radius: 0.75rem;
+}
+label.error::after {
+  content: "This field is required";
+  color: var(--strawberry-red);
+  font-size: 1rem;
+  font-weight: 700;
+}
+input.error {
+  border-color: var(--strawberry-red) !important;
 }
 .personal-form input::placeholder {
   font-size: 1rem;
@@ -176,6 +189,10 @@ body {
 }
 .step-button-contain {
   margin-top: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -202,10 +219,39 @@ body {
 /* STEP ADD ONS STYLE END */
 /* STEP SUMMARY STYLE START */
 .summary-contain {
-  background-color: var(--light-gray);
+  padding: 1.375em;
+  border-radius: 0.75rem;
+  background-color: var(--magnolia);
 }
 .summary-plan {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+.summary-plan-title,
+.summary-plan-price {
+  font-size: 1rem;
+  color: var(--marineblue);
+  font-weight: 500;
+}
+.change-btn {
+  text-decoration: underline;
+  border: none;
+  outline: none;
+  background: none;
+}
+.change-btn,
+.summary-add-on,
+.summary-total {
+  font-size: 0.875rem;
+  color: var(--cool-gray);
+}
+.summary-add-on,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+}
+.summary-total {
+  padding: 0 1.375em;
 }
 /* STEP SUMMARY STYLE END */
