@@ -17,8 +17,6 @@ function stepInfoValidations(event) {
   if (nameInput.value == "") {
     nameLabel.classList.add("error");
     nameInput.classList.add("error");
-    // nextStepButtons[0].preventDefault();
-    // event.target.preventDefault()
   } else {
     nameLabel.classList.remove("error");
     nameInput.classList.remove("error");
@@ -26,7 +24,6 @@ function stepInfoValidations(event) {
   if (emailInput.value == "") {
     emailLabel.classList.add("error");
     emailInput.classList.add("error");
-    // nextStepButtons[0].preventDefault();
   } else {
     emailLabel.classList.remove("error");
     emailInput.classList.remove("error");
@@ -34,13 +31,11 @@ function stepInfoValidations(event) {
   if (phoneNumberInput.value == "") {
     phoneNumberLabel.classList.add("error");
     phoneNumberInput.classList.add("error");
-    // nextStepButtons[0].preventDefault();
   } else {
     phoneNumberLabel.classList.remove("error");
     phoneNumberInput.classList.remove("error");
   }
 }
-// stepInfoValidations();
 backButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.dataset.step == "plan") {
@@ -66,12 +61,20 @@ nextStepButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (button.dataset.step == "info") {
       stepInfoValidations(e);
-      stepInfoInputs.forEach((input) => {
-        if (input.value === "") {
-          return false;
-        }
-      });
-      // console.log(e)
+      // stepInfoInputs.forEach((input) => {
+      //   if (input.value === "") {
+      //     console.log("ok")
+      //   } else {
+      //     console.log("no")
+      //   }
+      // })
+      if (
+        stepInfoInputs[0].value == "" ||
+        stepInfoInputs[1].value == "" ||
+        stepInfoInputs[2].value == ""
+      ) {
+        return false;
+      }
       numberContains[0].classList.remove("active");
       numberContains[1].classList.add("active");
       stepInfo.classList.add("no-show");
@@ -88,6 +91,73 @@ nextStepButtons.forEach((button) => {
       stepSummary.classList.remove("no-show");
     } else if (button.dataset.step == "summary") {
       alert("summary");
+    }
+  });
+});
+
+const planBoxes = document.querySelectorAll(".plan-box");
+// plan box clicked on
+planBoxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    planBoxes.forEach((box) => box.classList.remove("choosed"));
+    box.classList.add("choosed");
+  });
+});
+
+const planBoxPrices = document.querySelectorAll(".plan-box-price");
+const twoMonthsFreeTexts = document.querySelectorAll(".two-months-free");
+const monthYearSwitcherContain = document.querySelector(
+  ".monthly-yearly-switcher-contain"
+);
+const monthly = document.querySelector(".month");
+const yearly = document.querySelector(".year");
+const switcher = document.querySelector(".switcher");
+// swticher button clicked on
+switcher.addEventListener("click", () => {
+  monthYearSwitcherContain.classList.toggle("yearly");
+  if (monthYearSwitcherContain.classList.contains("yearly")) {
+    // yearly activated
+    planBoxPrices[0].textContent = "$90/yr";
+    planBoxPrices[1].textContent = "$120/yr";
+    planBoxPrices[2].textContent = "$150/yr";
+    twoMonthsFreeTexts.forEach((txt) => (txt.style.display = "inline"));
+    monthly.classList.remove("active");
+    yearly.classList.add("active");
+  } else {
+    // monthly activated
+    planBoxPrices[0].textContent = "$9/yr";
+    planBoxPrices[1].textContent = "$12/yr";
+    planBoxPrices[2].textContent = "$15/yr";
+    twoMonthsFreeTexts.forEach((txt) => (txt.style.display = "none"));
+    monthly.classList.add("active");
+    yearly.classList.remove("active");
+  }
+  checkPlanMonthlyYearly();
+});
+
+// check the user choosed plan monthly or yearly
+function checkPlanMonthlyYearly() {
+  const addOnPrices = document.querySelectorAll(".add-on-price");
+  if (monthYearSwitcherContain.classList.contains("yearly")) {
+    addOnPrices[0].textContent = "+$10/yr";
+    addOnPrices[1].textContent = "+$20/yr";
+    addOnPrices[2].textContent = "+$20/yr";
+  } else {
+    addOnPrices[0].textContent = "+$1/mo";
+    addOnPrices[1].textContent = "+$2/mo";
+    addOnPrices[2].textContent = "+$2/mo";
+  }
+}
+
+// when add-on box clicked on
+const addOnBoxes = document.querySelectorAll(".add-on-box");
+addOnBoxes.forEach((addon) => {
+  addon.addEventListener("click", () => {
+    addon.classList.toggle("choosed");
+    if (addon.classList.contains("choosed")) {
+      addon.children[0].checked = true;
+    } else {
+      addon.children[0].checked = false;
     }
   });
 });
