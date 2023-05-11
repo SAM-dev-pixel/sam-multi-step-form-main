@@ -1,3 +1,20 @@
+// save the data here
+const database = {
+  name: "",
+  emailAddress: "",
+  phoneNumber: "",
+  plan: {
+    planName: "",
+    planPrice: "",
+  },
+  addOns: [
+    {
+      addOnName: "",
+      addOnPrice: "",
+    },
+  ],
+};
+
 const numberContains = document.querySelectorAll(".number-contain");
 const stepInfoInputs = document.querySelectorAll(".step-info input");
 const stepInfo = document.querySelector(".step-info");
@@ -79,16 +96,33 @@ nextStepButtons.forEach((button) => {
       numberContains[1].classList.add("active");
       stepInfo.classList.add("no-show");
       stepPlan.classList.remove("no-show");
+      // save the data has been input to the database
+      database.name = stepInfoInputs[0].value;
+      database.emailAddress = stepInfoInputs[1].value;
+      database.phoneNumber = stepInfoInputs[2].value;
     } else if (button.dataset.step == "plan") {
       numberContains[1].classList.remove("active");
       numberContains[2].classList.add("active");
       stepPlan.classList.add("no-show");
       stepAddon.classList.remove("no-show");
+      // save the data has been input to the database
+      database.plan.planName = document.querySelector(
+        ".plan-box.choosed .plan-box-title"
+      ).textContent;
+      database.plan.planPrice = document.querySelector(
+        ".plan-box.choosed .plan-box-price"
+      ).textContent;
     } else if (button.dataset.step == "add-on") {
       numberContains[2].classList.remove("active");
       numberContains[3].classList.add("active");
       stepAddon.classList.add("no-show");
       stepSummary.classList.remove("no-show");
+      // save the data has been input to the database
+      // console.log(database.addOns.push("OBJ"))
+      // const addOnBoxesChoosed = document.querySelectorAll(".add-on-box.choosed");
+      // addOnBoxesChoosed.forEach(box => {
+      //   console.log(box)
+      // })
     } else if (button.dataset.step == "summary") {
       alert("summary");
     }
@@ -160,4 +194,19 @@ addOnBoxes.forEach((addon) => {
       addon.children[0].checked = false;
     }
   });
+});
+
+// change button clicked on
+const changeButton = document.querySelector(".change-btn");
+changeButton.addEventListener("click", () => {
+  numberContains[0].classList.add("active");
+  numberContains[3].classList.remove("active");
+  stepInfo.classList.remove("no-show");
+  stepSummary.classList.add("no-show");
+});
+
+// confirm button clicked on
+const confirmButton = document.getElementById("confirm-btn");
+confirmButton.addEventListener("click", () => {
+  console.log(database);
 });

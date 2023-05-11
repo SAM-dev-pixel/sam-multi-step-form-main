@@ -31,6 +31,7 @@ body {
   padding: 1rem;
   display: flex;
   background-color: var(--alabaster);
+  border-radius: 0.75rem;
 }
 .sidebar {
   width: 17.125rem;
@@ -41,6 +42,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 0.5rem;
 }
 .sidebar-title-contain {
   display: flex;
@@ -142,12 +144,31 @@ input.error {
 .personal-form input::placeholder {
   font-size: 1rem;
 }
+.back-btn,
+.next-btn,
+.change-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.back-btn {
+  color: var(--cool-gray);
+  font-weight: 500;
+}
+.back-btn:hover {
+  color: var(--marineblue);
+}
 .next-btn {
   color: var(--magnolia);
   padding: 1.125em 1.625em;
   margin-left: auto;
-  background-color: var(--dark) !important;
+  background-color: var(--marineblue);
   border-radius: 0.5rem;
+}
+.next-btn:hover {
+  background-color: hsl(213, 87%, 27%);
 }
 /* STEP INFO STYLE END*/
 /* STEP PLAN STYLE START*/
@@ -224,11 +245,6 @@ input.error {
   align-items: center;
   justify-content: space-between;
 }
-.step-button-contain button {
-  background: none;
-  border: none;
-  outline: none;
-}
 /* STEP PLAN STYLE END*/
 /* STEP ADD ONS STYLE START */
 .add-on-box {
@@ -240,9 +256,13 @@ input.error {
   border: 1px solid var(--dark);
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: 0.25s;
 }
 .add-on-box.choosed {
   background-color: var(--magnolia);
+  border-color: var(--purplish-blue);
+}
+.add-on-box:hover {
   border-color: var(--purplish-blue);
 }
 .add-on-box input {
@@ -254,7 +274,7 @@ input.error {
   margin-bottom: 0.35em;
 }
 .add-on-info {
-  color: var(--dark);
+  color: var(--cool-gray);
   font-size: 0.875rem;
 }
 .add-on-price {
@@ -269,9 +289,12 @@ input.error {
   background-color: var(--magnolia);
 }
 .summary-plan {
+  padding-bottom: 1.375em;
+  margin-bottom: 1.375em;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--cool-gray);
 }
 .summary-plan-title,
 .summary-plan-price {
@@ -281,9 +304,9 @@ input.error {
 }
 .change-btn {
   text-decoration: underline;
-  border: none;
-  outline: none;
-  background: none;
+}
+.change-btn:hover {
+  color: var(--purplish-blue);
 }
 .change-btn,
 .summary-add-on,
@@ -296,7 +319,24 @@ input.error {
   display: flex;
   justify-content: space-between;
 }
+.summary-add-on:not(:last-child) {
+  margin-bottom: 1em;
+}
+.summary-add-on .price {
+  color: var(--dark);
+}
 .summary-total {
-  padding: 0 1.375em;
+  padding: 1.75em 1.375em;
+}
+.summary-total .price {
+  color: var(--purplish-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.step-summary .next-btn {
+  background-color: var(--purplish-blue);
+}
+.step-summary .next-btn:hover {
+  background-color: hsl(243, 94%, 70%);
 }
 /* STEP SUMMARY STYLE END */
