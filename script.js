@@ -7,12 +7,9 @@ const database = {
     planName: "",
     planPrice: "",
   },
-  addOns: [
-    {
-      addOnName: "",
-      addOnPrice: "",
-    },
-  ],
+  addOns: function() {
+    
+  },
 };
 
 const numberContains = document.querySelectorAll(".number-contain");
@@ -23,6 +20,9 @@ const stepAddon = document.querySelector(".step-add-on");
 const stepSummary = document.querySelector(".step-summary");
 const backButtons = document.querySelectorAll(".back-btn");
 const nextStepButtons = document.querySelectorAll(".next-btn");
+const summaryPlanTitleOne = document.querySelector(".summary-plan-title .one");
+const summaryPlanTitleTwo = document.querySelector(".summary-plan-title .two");
+const summaryPlanPrice = document.querySelector(".summary-plan-price");
 
 function stepInfoValidations(event) {
   const nameInput = document.getElementById("name");
@@ -90,7 +90,7 @@ nextStepButtons.forEach((button) => {
         stepInfoInputs[1].value == "" ||
         stepInfoInputs[2].value == ""
       ) {
-        return false;
+        // return false;
       }
       numberContains[0].classList.remove("active");
       numberContains[1].classList.add("active");
@@ -118,11 +118,25 @@ nextStepButtons.forEach((button) => {
       stepAddon.classList.add("no-show");
       stepSummary.classList.remove("no-show");
       // save the data has been input to the database
-      // console.log(database.addOns.push("OBJ"))
-      // const addOnBoxesChoosed = document.querySelectorAll(".add-on-box.choosed");
-      // addOnBoxesChoosed.forEach(box => {
-      //   console.log(box)
-      // })
+      const addOnBoxesChoosed = document.querySelectorAll(
+        ".add-on-box.choosed"
+      );
+      addOnBoxesChoosed.forEach((box) => {
+        const addOnBoxesChoosedTitle = box.children[1].children[0];
+        const addOnBoxesChoosedPrice = box.children[2];
+        // console.log(addOnBoxesChoosedTitle);
+        // database.addOns.push({
+        //   addOnName: addOnBoxesChoosedTitle.textContent,
+        //   addOnPrice: addOnBoxesChoosedPrice.textContent,
+        // })
+        database.addOns = [
+          {
+            addOnName: addOnBoxesChoosedTitle.textContent,
+            addOnPrice: addOnBoxesChoosedPrice.textContent,
+          },
+        ];
+      });
+      getUserPlan();
     } else if (button.dataset.step == "summary") {
       alert("summary");
     }
@@ -176,10 +190,12 @@ function checkPlanMonthlyYearly() {
     addOnPrices[0].textContent = "+$10/yr";
     addOnPrices[1].textContent = "+$20/yr";
     addOnPrices[2].textContent = "+$20/yr";
+    summaryPlanTitleTwo.textContent = "(Yearly)";
   } else {
     addOnPrices[0].textContent = "+$1/mo";
     addOnPrices[1].textContent = "+$2/mo";
     addOnPrices[2].textContent = "+$2/mo";
+    summaryPlanTitleTwo.textContent = "(Monthly)";
   }
 }
 
@@ -196,6 +212,11 @@ addOnBoxes.forEach((addon) => {
   });
 });
 
+// get the data plan from user
+function getUserPlan() {
+  summaryPlanTitleOne.textContent = database.plan.planName;
+  summaryPlanPrice.textContent = database.plan.planPrice;
+}
 // change button clicked on
 const changeButton = document.querySelector(".change-btn");
 changeButton.addEventListener("click", () => {
