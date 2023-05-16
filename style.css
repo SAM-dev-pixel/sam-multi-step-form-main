@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid green; */
+  outline: 1px solid green;
 }
 :root {
   --marineblue: hsl(213, 96%, 18%);
@@ -26,8 +26,9 @@ body {
   background-color: var(--magnolia);
 }
 .main-container {
-  width: 58.75rem;
-  /* height: 37.5rem; */
+  /* width: 58.75rem; */
+  width: min(100vw, 58.75rem);
+  height: 37.5rem;
   padding: 1rem;
   display: flex;
   background-color: var(--alabaster);
@@ -358,3 +359,21 @@ input.error {
   color: var(--cool-gray);
 }
 /* STEP COMPLETE STYLE END */
+/* RESPONSIVE STYLE START */
+@media (width < 46.875rem) {
+  .main-container {
+    display: initial;
+  }
+  .sidebar {
+    width: 100%;
+    margin-right: 0;
+    background: url(../assets/images/bg-sidebar-mobile.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .step-container {
+    width: 100%;
+  }
+}
+/* RESPONSIVE STYLE END */
