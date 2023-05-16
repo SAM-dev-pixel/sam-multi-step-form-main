@@ -7,9 +7,7 @@ const database = {
     planName: "",
     planPrice: "",
   },
-  addOns: function() {
-    
-  },
+  addOns: [],
 };
 
 const numberContains = document.querySelectorAll(".number-contain");
@@ -18,6 +16,7 @@ const stepInfo = document.querySelector(".step-info");
 const stepPlan = document.querySelector(".step-plan");
 const stepAddon = document.querySelector(".step-add-on");
 const stepSummary = document.querySelector(".step-summary");
+const stepComplete = document.querySelector(".step-complete");
 const backButtons = document.querySelectorAll(".back-btn");
 const nextStepButtons = document.querySelectorAll(".next-btn");
 const summaryPlanTitleOne = document.querySelector(".summary-plan-title .one");
@@ -90,7 +89,7 @@ nextStepButtons.forEach((button) => {
         stepInfoInputs[1].value == "" ||
         stepInfoInputs[2].value == ""
       ) {
-        // return false;
+        return false;
       }
       numberContains[0].classList.remove("active");
       numberContains[1].classList.add("active");
@@ -138,7 +137,9 @@ nextStepButtons.forEach((button) => {
       });
       getUserPlan();
     } else if (button.dataset.step == "summary") {
-      alert("summary");
+      // alert("summary");
+      stepAddon.classList.add("no-show");
+      stepComplete.classList.remove("no-show");
     }
   });
 });
