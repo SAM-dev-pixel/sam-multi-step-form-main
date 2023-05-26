@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid green; */
 }
 :root {
   --marineblue: hsl(213, 96%, 18%);
@@ -397,7 +396,7 @@ input.error {
     top: -4rem;
     bottom: auto;
     padding: 1.5rem;
-    border-radius: .75rem;
+    border-radius: 0.75rem;
   }
   .plan-box-contain {
     flex-direction: column;
