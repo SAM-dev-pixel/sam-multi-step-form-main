@@ -77,13 +77,6 @@ nextStepButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (button.dataset.step == "info") {
       stepInfoValidations(e);
-      // stepInfoInputs.forEach((input) => {
-      //   if (input.value === "") {
-      //     console.log("ok")
-      //   } else {
-      //     console.log("no")
-      //   }
-      // })
       if (
         stepInfoInputs[0].value == "" ||
         stepInfoInputs[1].value == "" ||
@@ -123,11 +116,6 @@ nextStepButtons.forEach((button) => {
       addOnBoxesChoosed.forEach((box) => {
         const addOnBoxesChoosedTitle = box.children[1].children[0];
         const addOnBoxesChoosedPrice = box.children[2];
-        // console.log(addOnBoxesChoosedTitle);
-        // database.addOns.push({
-        //   addOnName: addOnBoxesChoosedTitle.textContent,
-        //   addOnPrice: addOnBoxesChoosedPrice.textContent,
-        // })
         database.addOns = [
           {
             addOnName: addOnBoxesChoosedTitle.textContent,
@@ -137,8 +125,7 @@ nextStepButtons.forEach((button) => {
       });
       getUserPlan();
     } else if (button.dataset.step == "summary") {
-      // alert("summary");
-      stepAddon.classList.add("no-show");
+      stepSummary.classList.add("no-show");
       stepComplete.classList.remove("no-show");
     }
   });
